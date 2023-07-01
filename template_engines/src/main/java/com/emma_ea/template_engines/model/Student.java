@@ -1,7 +1,7 @@
 package com.emma_ea.template_engines.model;
 
 public record Student(
-        Integer id,
+        int id,
         String name,
         double grade
 ) {}
