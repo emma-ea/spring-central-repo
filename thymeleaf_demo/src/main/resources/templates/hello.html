@@ -24,6 +24,12 @@
       You failed the exam.
   </div>
 
+  <div th:unless="${id} == null">
+      <h5>url request params</h5>
+      <p th:text="${id}"></p>
+      <p th:text="${name}"></p>
+  </div>
+
   <h3> Copyright (c) <span th:text="${year}"></span> </h3>
 </body>
 </html>

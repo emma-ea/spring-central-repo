@@ -18,5 +18,15 @@
           <td th:text="${user.age}"></td>
       </tr>
   </table>
+
+  <h3>Thymeleaf scope</h3>
+  <p>Request: <span th:text="${request}"></span></p>
+  <p>Session: <span th:text="${session.session}"></span></p>
+  <p>Application: <span th:text="${application.application}"></span></p>
+
+  <h3>Thymeleaf URLs</h3>
+  <a th:href="@{~/hello}">Visit demo page</a> <br/>
+  <!--visit with parameter-->
+  <a th:href="@{~/hello(id=1, name=eric)}">Visit demo page with parameter</a> <br/>
 </body>
 </html>
