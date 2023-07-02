@@ -20,6 +20,7 @@ public class HelloController {
         users.add(new User(1, "John", 34));
         users.add(new User(2, "Will", 67));
         users.add(new User(3, "Sam", 20));
+        users.add(new User(4, "Tom", 19));
         model.addAttribute("users", users);
         return "hello2";
     }
