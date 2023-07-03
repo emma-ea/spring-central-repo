@@ -1,13 +1,53 @@
 package com.emma_ea.form_validation.model;
 
-import jakarta.validation.constraints.NotBlank;
 
-public record User(
-        @NotBlank(message = "username cannot be blank")
-        String name,
+import javax.validation.constraints.NotBlank;
+
+public class User {
+        @NotBlank(message = "name cannot be blank")
+        private String name;
         @NotBlank(message = "password cannot be blank")
-        String password,
-        Double grade
-) {
+        private String password;
+        private Double grade;
 
+        public User() { }
+
+        public User(String name, String password, Double grade) {
+                this.name = name;
+                this.password = password;
+                this.grade = grade;
+        }
+
+        public String getName() {
+                return name;
+        }
+
+        public void setName(String name) {
+                this.name = name;
+        }
+
+        public String getPassword() {
+                return password;
+        }
+
+        public void setPassword(String password) {
+                this.password = password;
+        }
+
+        public Double getGrade() {
+                return grade;
+        }
+
+        public void setGrade(Double grade) {
+                this.grade = grade;
+        }
+
+        @Override
+        public String toString() {
+                return "User{" +
+                        "name='" + name + '\'' +
+                        ", password='" + password + '\'' +
+                        ", grade=" + grade +
+                        '}';
+        }
 }
