@@ -22,6 +22,11 @@
         <td>Grade:</td>
         <td><input type="text" th:field="*{grade}"/></td>
       </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" th:field="*{email}"/></td>
+        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+      </tr>
     </table>
     <input type="submit" value="Add">
   </form>
