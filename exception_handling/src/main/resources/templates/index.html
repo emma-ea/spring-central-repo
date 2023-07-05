@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
 </head>
 <body>
- <div style="width: auto; height: 100%; display: flex; justify-content: center; align-items: center;">
-   <h3>Welcome</h3>
- </div>
+    <div style="width: auto; height: 100%; display: flex; justify-content: center; align-items: center;">
+        <h3>Welcome</h3>
+    </div>
+    <p>Pages</p>
+    <a th:href="@{/add}">Add</a>
+    <br/>
+    <br/>
+    <a th:href="@{/update}">Update</a>
 </body>
 </html>

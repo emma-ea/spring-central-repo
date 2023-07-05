@@ -19,11 +19,24 @@ public class UserController {
         return "add";
     }
 
+    @GetMapping("update")
+    public String update() {
+        String name = null;
+        name = name.toString();
+        return "update";
+    }
+
     @ExceptionHandler(value = ArithmeticException.class)
     public ModelAndView catchMathError(Exception e) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("exception", e.toString());
         modelAndView.setViewName("mathError");
         return modelAndView;
+    }
+
+    @ExceptionHandler(value = NullPointerException.class)
+    public String nullPointerError(Exception e, Model model) {
+        model.addAttribute("exception", e.toString());
+        return "nullPointerError";
     }
 }
