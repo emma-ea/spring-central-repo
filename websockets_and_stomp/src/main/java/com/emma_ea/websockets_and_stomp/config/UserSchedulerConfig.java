@@ -14,9 +14,9 @@ public class UserSchedulerConfig {
     @Autowired
     SimpMessagingTemplate template;
 
-    @Scheduled(fixedDelay = 5000)
-    public void scheduleMessage() {
-        template.convertAndSend("/topic/user", new UserResponse("scheduler"));
-    }
+//    @Scheduled(fixedDelay = 5000)
+//    public void scheduleMessage() {
+//        template.convertAndSend("/topic/user", new UserResponse("scheduler"));
+//    }
 
 }
