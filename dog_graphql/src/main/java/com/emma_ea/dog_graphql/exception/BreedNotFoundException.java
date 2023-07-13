@@ -9,18 +9,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FindDogBreedException
+public class BreedNotFoundException
         extends RuntimeException implements GraphQLError {
 
     Map<String, Object> extensions = new HashMap<>();
 
-    public FindDogBreedException(String msg, Long invalidDogId) {
-        super(String.format("%s: %d\n", msg, invalidDogId));
-        extensions.put("invalidDogId", invalidDogId);
+    public BreedNotFoundException(String msg, String invalidDogBreed) {
+        super(String.format("%s: %s\n", msg, invalidDogBreed));
+        extensions.put("invalidDogBreed", invalidDogBreed);
     }
 
     @Override
-    public List<SourceLocation> getLocations() { return null; }
+    public List<SourceLocation> getLocations() {
+        return null;
+    }
 
     @Override
     public ErrorClassification getErrorType() {
