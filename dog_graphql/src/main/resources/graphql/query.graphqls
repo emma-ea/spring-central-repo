@@ -1,0 +1,5 @@
+type Query {
+    findDogBreeds: [Dog]!,
+    findDogBreedById(id: ID!): String!,
+    findAllDogNames: [String]!,
+}
