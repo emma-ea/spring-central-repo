@@ -1,21 +1,21 @@
-package com.emma_ea.dog_graphql.resolver;
+package com.emma_ea.dog_graphql.resolver.query;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.emma_ea.dog_graphql.entity.Dog;
 import com.emma_ea.dog_graphql.exception.FindDogBreedException;
 import com.emma_ea.dog_graphql.repository.DogRepository;
 import com.emma_ea.dog_graphql.service.DogService;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
-public class Query implements GraphQLQueryResolver {
+public class DogQueryResolver implements GraphQLQueryResolver {
 
     private final DogRepository repository;
 
-    public Query(DogRepository repository) {
+    public DogQueryResolver(DogRepository repository) {
         this.repository = repository;
     }
 

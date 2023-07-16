@@ -1,21 +1,21 @@
-package com.emma_ea.dog_graphql.mutator;
+package com.emma_ea.dog_graphql.resolver.mutation;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.emma_ea.dog_graphql.entity.Dog;
 import com.emma_ea.dog_graphql.exception.BreedNotFoundException;
 import com.emma_ea.dog_graphql.exception.FindDogBreedException;
 import com.emma_ea.dog_graphql.repository.DogRepository;
+import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
-public class Mutation implements GraphQLMutationResolver {
+public class DogMutation implements GraphQLMutationResolver {
 
     private final DogRepository repository;
 
-    public Mutation(DogRepository repository) {
+    public DogMutation(DogRepository repository) {
         this.repository = repository;
     }
 
