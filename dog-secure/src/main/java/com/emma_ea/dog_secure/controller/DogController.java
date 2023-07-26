@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/dogs")
+@RequestMapping("/dogs")
 public class DogController {
 
     private final DogService service;
@@ -18,7 +18,7 @@ public class DogController {
         this.service = service;
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
     public List<Dog> all() {
         return service.allDogs();
     }

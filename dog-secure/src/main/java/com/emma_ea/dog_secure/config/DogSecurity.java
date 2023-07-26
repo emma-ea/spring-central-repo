@@ -10,16 +10,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class DogSecurity {
 
    @Bean
    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
      http.authorizeHttpRequests(
-             (auth) -> auth.anyRequest().authenticated())
-             .httpBasic(Customizer.withDefaults());
+             (auth) -> auth.requestMatchers(new AntPathRequestMatcher("/h2")).hasRole("ADMIN")
+                     .anyRequest()
+                     .permitAll()
+     ).httpBasic(Customizer.withDefaults());
      return http.build();
    }
 
@@ -32,6 +34,12 @@ public class DogSecurity {
                       .roles("USER")
                       .build()
       );
+      manager.createUser(
+              User.withUsername("admin")
+                      .password(encoder.encode("password"))
+                      .roles("ADMIN")
+                      .build()
+      );
       return manager;
    }
 
@@ -39,7 +47,5 @@ public class DogSecurity {
    public PasswordEncoder encoder() {
       return new BCryptPasswordEncoder();
    }
-
-
 
 }
