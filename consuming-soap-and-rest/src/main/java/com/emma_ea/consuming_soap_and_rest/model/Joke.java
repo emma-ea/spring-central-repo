@@ -9,9 +9,9 @@ public class Joke {
 
     public Joke(int id, String punchline, String type, String setup) {
         this.id = id;
-        this.punchline = punchline;
         this.type = type;
         this.setup = setup;
+        this.punchline = punchline;
     }
 
     public int getId() {
