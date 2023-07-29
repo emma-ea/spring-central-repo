@@ -3,6 +3,8 @@ package com.emma_ea.dogdata.web;
 import com.emma_ea.dogdata.entity.Dog;
 import com.emma_ea.dogdata.exception.DogNotFoundException;
 import com.emma_ea.dogdata.service.DogService;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/dogs")
+@ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Dog info retrieve successfully"),
+        @ApiResponse(responseCode = "400", description = "Couldn't find Dog with parameter specified")
+})
 public class DogController {
 
     private final DogService service;
